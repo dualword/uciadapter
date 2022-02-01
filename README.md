@@ -1,3 +1,6 @@
+[![pipeline](https://gitlab.com/manzerbredes/uciadapter/badges/main/pipeline.svg)](https://gitlab.com/manzerbredes/uciadapter/-/commits/main)
+[![license](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
+
 # uciadapter
 *uciadapter* is a C++ library that allows you to communicate with any chess
 engines that follows the [UCI Protocol](http://wbec-ridderkerk.nl/html/UCIProtocol.html).
