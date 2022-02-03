@@ -42,7 +42,7 @@ void ProcessWindows::CreateChildProcess(std::string engine_path)
 
   // If an error occurs, exit the application.
   if (!bSuccess)
-    ErrorExit(TEXT("CreateProcess"));
+    throw FailedToStartEngine();
   else {
     // Close handles to the child process and its primary thread.
     // Some applications might keep these handles to monitor the status
@@ -90,7 +90,6 @@ void ProcessWindows::ErrorExit(PTSTR lpszFunction)
 
 ProcessWindows::ProcessWindows() {
 
-  printf("\n->Start of parent execution.\n");
   saAttr.nLength = sizeof(SECURITY_ATTRIBUTES);
   saAttr.bInheritHandle = TRUE;
   saAttr.lpSecurityDescriptor = NULL;

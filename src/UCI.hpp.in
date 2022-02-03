@@ -1,4 +1,6 @@
+#ifndef @COMPILE_PLATFORM@
 #define @COMPILE_PLATFORM@
+#endif
 #ifdef UNIX
 #include "ProcessLinux.hpp"
 #define INIT_PROCESS(p)                                                        \

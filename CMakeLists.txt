@@ -7,6 +7,7 @@ SET(COMPILE_PLATFORM UNIX)
 if(WIN32)
     SET(process src/ProcessWindows.cpp)
     SET(COMPILE_PLATFORM WIN32)
+    SET(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 endif()
 add_library(uciadapter SHARED src/UCI.cpp ${process})
 
@@ -17,6 +18,7 @@ file(MAKE_DIRECTORY ${UCIADAPTER_INCLUDE_DIR})
 configure_file(src/UCI.hpp.in ${UCIADAPTER_INCLUDE_DIR}/UCI.hpp)
 configure_file(src/Process.hpp ${UCIADAPTER_INCLUDE_DIR} COPYONLY)
 configure_file(src/ProcessLinux.hpp ${UCIADAPTER_INCLUDE_DIR} COPYONLY)
+configure_file(src/ProcessWindows.hpp ${UCIADAPTER_INCLUDE_DIR} COPYONLY)
 include_directories(${UCIADAPTER_INCLUDE_DIR})
 
 # Tests
