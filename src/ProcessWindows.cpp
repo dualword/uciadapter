@@ -131,8 +131,6 @@ std::string ProcessWindows::ReadLine() {
     if (c == '\n')
       break;
   }
-
-  printf("ejeh\n");
   return (line);
 }
 
