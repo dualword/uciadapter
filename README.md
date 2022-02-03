@@ -4,7 +4,7 @@
 # uciadapter
 *uciadapter* is a C++ library that allows you to communicate with any chess
 engines that follows the [UCI Protocol](http://wbec-ridderkerk.nl/html/UCIProtocol.html).
-It aims to work on Linux and Windows (not yet on windows).
+It works on both platforms, Linux and Windows.
 
 # How to use it ?
 PGNP can be used as a shared library in your project.

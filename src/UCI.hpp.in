@@ -1,9 +1,13 @@
+#define @COMPILE_PLATFORM@
 #ifdef UNIX
 #include "ProcessLinux.hpp"
 #define INIT_PROCESS(p)                                                        \
   { p = static_cast<Process *>(new ProcessLinux()); }
-#else
+#endif
+#ifdef WIN32
 #include "ProcessWindows.hpp"
+#define INIT_PROCESS(p)                                                        \
+  { p = static_cast<Process *>(new ProcessWindows()); }
 #endif
 #include <chrono>
 #include <sstream>

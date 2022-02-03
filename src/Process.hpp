@@ -1,5 +1,4 @@
 #include <string>
-
 #define ENGINE_TIMEOUT 5 // In seconds
 #define BUFFER_SIZE 1024
 
@@ -12,7 +11,8 @@ public:
   virtual void Kill() = 0;
   /// @brief Start the engine from file path
   virtual void Start(std::string) = 0;
-  /// @brief Read one line from the stdout of the engine (could raise a ReadTimeoutExpire)
+  /// @brief Read one line from the stdout of the engine (could raise a
+  /// ReadTimeoutExpire)
   virtual std::string ReadLine() = 0;
   /// @brief Write to engine stdin
   virtual void Write(std::string) = 0;

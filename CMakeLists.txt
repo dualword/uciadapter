@@ -2,11 +2,11 @@ cmake_minimum_required(VERSION 3.10)
 project(uciadapter)
 
 # Configure Process
-add_definitions(-DUNIX)
 SET(process src/ProcessLinux.cpp)
+SET(COMPILE_PLATFORM UNIX)
 if(WIN32)
-    remove_definitions(-DUNIX)
-    message(FATAL_ERROR "uciadapter is not yet compatible with Windows")
+    SET(process src/ProcessWindows.cpp)
+    SET(COMPILE_PLATFORM WIN32)
 endif()
 add_library(uciadapter SHARED src/UCI.cpp ${process})
 
@@ -14,7 +14,7 @@ add_library(uciadapter SHARED src/UCI.cpp ${process})
 set(UCIADAPTER_INCLUDE_DIR ${CMAKE_CURRENT_BINARY_DIR}/includes) # For conveniance
 set(UCIADAPTER_INCLUDE_DIR ${UCIADAPTER_INCLUDE_DIR} PARENT_SCOPE) # To be used by other projects with add_subdirectory()
 file(MAKE_DIRECTORY ${UCIADAPTER_INCLUDE_DIR})
-configure_file(src/UCI.hpp ${UCIADAPTER_INCLUDE_DIR} COPYONLY)
+configure_file(src/UCI.hpp.in ${UCIADAPTER_INCLUDE_DIR}/UCI.hpp)
 configure_file(src/Process.hpp ${UCIADAPTER_INCLUDE_DIR} COPYONLY)
 configure_file(src/ProcessLinux.hpp ${UCIADAPTER_INCLUDE_DIR} COPYONLY)
 include_directories(${UCIADAPTER_INCLUDE_DIR})
