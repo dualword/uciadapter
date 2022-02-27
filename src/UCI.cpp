@@ -237,7 +237,9 @@ void UCI::debug(bool d) {
   }
 }
 void UCI::ponderhit() { Command("ponderhit"); }
-void UCI::quit() { Command("quit"); }
+void UCI::quit() {
+  p->Write(cmd + "\n"); // Note that we should no do a sync!
+}
 void UCI::ucinewgame() { Command("ucinewgame"); }
 void UCI::position(std::string fen, std::string moves) {
   position(fen + " moves " + moves);
